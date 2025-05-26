@@ -7,17 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <article id="perfumy-content"></article>
 
-    <script>
-        fetch('perfumy.md')
-            .then(response => response.text())
-            .then(markdown => {
-                const converter = new showdown.Converter();
-                const html = converter.makeHtml(markdown);
-                document.getElementById('perfumy-content').innerHTML = html;
-            });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+    <article id="perfumy-content"></article>
+<h1><a id="Perfumy_0"></a><strong>Perfumy</strong></h1>
+<ul>
+    <li><strong>Na lato</strong>
+        <ul>
+        <li><a href="https://francuskieperfumy.pl/francuskie-perfumy-nr-259.html">Carolina Herrera Bad Boy Cobalt</a><br>
+                Nuty głowy: Lawenda, Różowy pieprz<br>
+                Nuty serca:  Śliwka, Geranium<br>
+                Nuty bazy: Wetyweria, Trufla, Cedr, Dąb</li>
+            <li><a href="https://francuskieperfumy.pl/francuskie-perfumy-nr-315.html">Versace Dylan Blue</a><br>
+                Nuty głowy: nuty wodne, kalabryjska bergamotka, grejpfrut i liść figi<br>
+                Nuty serca: liść fiołka, papirus, paczula, czarny pieprz i ambroksan<br>
+                Nuty bazy: piżmo, kadzidło, fasolka tonka i szafran</li>
+            <li><a href="https://francuskieperfumy.pl/aj-deluxe-201.html">Davidoff cool water edp</a><br>
+                Nuty głowy: woda morska, mięta, nuty zielone, lawenda, kolendra, rozmaryn, calone<br>
+                Nuty serca: drzewo sandałowe, jaśmin, neroli, geranium<br>
+                Nuty bazy: piżmo, mech dębowy, cedr, tytoń</li>
+            <li><a href="https://francuskieperfumy.pl/aj-deluxe-207.html">Versace - Eros</a><br>
+                Nuty głowy: mięta, zielone jabłko i cytryna<br>
+                Nuty serca: fasolka tonka, geranium i ambroksan<br>
+                Nuty  bazy: madagaskarska wanilia, wetyweria, mech dębowy, cedr virginia i cedr atlaski</li>
+</ul>
+    </li>
+
 </body>
 </html>
