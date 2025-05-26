@@ -55,4 +55,8 @@ a:hover {
 }
 .nuty {
     margin-left: 40px;
+    font-size: 0.9em; /* Nieco mniejsza czcionka */
+    color: #777; /* Ciemnoszary kolor */
+    margin-top: 5px; /* Mały odstęp od linku */
+    line-height: 1.4; /* Lepsza czytelność długich linii */
 }
