@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfumy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <article id="perfumy-content"></article>
+
+    <script>
+        fetch('perfumy.md')
+            .then(response => response.text())
+            .then(markdown => {
+                const converter = new showdown.Converter();
+                const html = converter.makeHtml(markdown);
+                document.getElementById('perfumy-content').innerHTML = html;
+            });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+</body>
+</html>
