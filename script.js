@@ -7,9 +7,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const perfumeList = document.getElementById('perfume-list');
     const perfumeNameInput = document.getElementById('perfume-name');
     const perfumeDescriptionInput = document.getElementById('perfume-description');
-    const perfumePriceInput = document.getElementById('perfume-price');
 
     let isLoggedIn = false; // Symulacja stanu zalogowania
+
+    // Funkcja do odczytywania perfum z localStorage
+    function loadPerfumes() {
+        const storedPerfumes = localStorage.getItem('perfumes');
+        if (storedPerfumes) {
+            const perfumes = JSON.parse(storedPerfumes);
+            perfumes.forEach(perfume => {
+                addPerfumeToList(perfume.name, perfume.description, false); // 'false' oznacza, że nie trzeba czyścić inputów
+            });
+        }
+    }
+
+    // Wywołaj funkcję loadPerfumes przy załadowaniu strony
+    loadPerfumes();
 
     loginForm.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -20,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = passwordInput.value.trim();
 
         // Symulacja sprawdzenia loginu i hasła (NIEBEZPIECZNE W PRAWDZIWEJ APLIKACJI!)
-        if (username === '123' && password === '123') {
+        if (username === '2137' && password === '2137') {
             isLoggedIn = true;
             loginSection.style.display = 'none';
             addPerfumeSection.style.display = 'block';
@@ -41,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const description = perfumeDescriptionInput.value.trim();
 
             if (name) {
-                addPerfumeToList(name, description);
-                clearInputFields();
+                addPerfumeToList(name, description, true); // 'true' oznacza, że trzeba wyczyścić inputy
+                savePerfumes();
             } else {
                 alert('Proszę podać nazwę perfum.');
             }
@@ -51,27 +64,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    function addPerfumeToList(name, description) {
+    function addPerfumeToList(name, description, shouldClearInputs) {
         const listItem = document.createElement('li');
         listItem.innerHTML = `
             <strong>${name}</strong>
             ${description ? `<p class="perfume-details">${description}</p>` : ''}
             <button class="delete-button">Usuń</button>
         `;
+        listItem.dataset.perfumeName = name; // Dodaj atrybut data, aby łatwiej identyfikować perfumy
         perfumeList.appendChild(listItem);
+
+        if (shouldClearInputs) {
+            clearInputFields();
+        }
     }
 
     function clearInputFields() {
         perfumeNameInput.value = '';
         perfumeDescriptionInput.value = '';
-        perfumePriceInput.value = '';
     }
 
-    // Delegacja zdarzeń do obsługi kliknięcia przycisku "Usuń"
+    function savePerfumes() {
+        const perfumes = [];
+        const listItems = perfumeList.querySelectorAll('li');
+        listItems.forEach(item => {
+            perfumes.push({
+                name: item.dataset.perfumeName,
+                description: item.querySelector('.perfume-details')?.textContent || ''
+            });
+        });
+        localStorage.setItem('perfumes', JSON.stringify(perfumes));
+    }
+
     perfumeList.addEventListener('click', function(event) {
         if (event.target.classList.contains('delete-button')) {
             const listItemToRemove = event.target.parentNode;
             perfumeList.removeChild(listItemToRemove);
+            savePerfumes(); // Zapisz listę po usunięciu
         }
     });
 });
