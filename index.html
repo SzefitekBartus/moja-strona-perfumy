@@ -3,51 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfumy</title>
+    <title>Dodaj Perfumy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Lista Perfum</h1>
 
-    <h1><a href="https://francuskieperfumy.pl">Perfumy</h1>
-    <ul>
-        <li>
-            <strong>Lato</strong>
-            <ul>
-                <li>
-                    <a href="https://francuskieperfumy.pl/francuskie-perfumy-nr-259.html">Carolina Herrera Bad Boy Cobalt</a>
-                    <div class="nuty">
-                        Nuty głowy: Lawenda, Różowy pieprz<br>
-                        Nuty serca: Śliwka, Geranium<br>
-                        Nuty bazy: Wetyweria, Trufla, Cedr, Dąb
-                    </div>
-                </li>
-                <li>
-                    <a href="https://francuskieperfumy.pl/francuskie-perfumy-nr-315.html">Versace Dylan Blue</a>
-                    <div class="nuty">
-                        Nuty głowy: nuty wodne, kalabryjska bergamotka, grejpfrut i liść figi<br>
-                        Nuty serca: liść fiołka, papirus, paczula, czarny pieprz i ambroksan<br>
-                        Nuty bazy: piżmo, kadzidło, fasolka tonka i szafran
-                    </div>
-                </li>
-                <li>
-                    <a href="https://francuskieperfumy.pl/aj-deluxe-201.html">Davidoff cool water edp</a>
-                    <div class="nuty">
-                        Nuty głowy: woda morska, mięta, nuty zielone, lawenda, kolendra, rozmaryn, calone<br>
-                        Nuty serca: drzewo sandałowe, jaśmin, neroli, geranium<br>
-                        Nuty bazy: piżmo, mech dębowy, cedr, tytoń
-                    </div>
-                </li>
-                <li>
-                    <a href="https://francuskieperfumy.pl/aj-deluxe-207.html">Versace - Eros</a>
-                    <div class="nuty">
-                        Nuty głowy: mięta, zielone jabłko i cytryna<br>
-                        Nuty serca: fasolka tonka, geranium i ambroksan<br>
-                        Nuty bazy: madagaskarska wanilia, wetyweria, mech dębowy, cedr virginia i cedr atlaski
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
+    <div id="login-section">
+        <h2>Logowanie</h2>
+        <form id="login-form">
+            <div>
+                <label for="username">Użytkownik:</label>
+                <input type="text" id="username" required>
+            </div>
+            <div>
+                <label for="password">Hasło:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Zaloguj</button>
+            <p id="login-message" style="color: red; display: none;">Nieprawidłowy login lub hasło.</p>
+        </form>
+    </div>
 
+    <div id="add-perfume-section" style="display: none;">
+        <h2>Dodaj Nowe Perfumy</h2>
+        <form id="add-perfume-form">
+            <div>
+                <label for="perfume-name">Nazwa:</label>
+                <input type="text" id="perfume-name" required>
+            </div>
+            <div>
+                <label for="perfume-description">Opis:</label>
+                <textarea id="perfume-description"></textarea>
+            </div>
+            <button type="submit">Dodaj</button>
+        </form>
+    </div>
+
+    <h2>Lista Perfum</h2>
+    <ul id="perfume-list">
+        </ul>
+
+    <script src="script.js"></script>
 </body>
 </html>
