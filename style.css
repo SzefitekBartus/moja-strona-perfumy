@@ -91,3 +91,20 @@ textarea {
     border-radius: 3px;
     box-sizing: border-box;
 }
+
+
+.delete-button {
+    background-color: #dc3545; /* Czerwony kolor tła */
+    color: white; /* Biały kolor tekstu */
+    border: none; /* Brak obramowania */
+    padding: 8px 12px; /* Wewnętrzne odstępy */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    cursor: pointer; /* Kursor wskazujący */
+    font-size: 0.9em; /* Mniejszy rozmiar czcionki */
+    margin-left: 10px; /* Odstęp od opisu perfum */
+    transition: background-color 0.3s ease; /* Płynne przejście koloru tła */
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Ciemniejszy czerwony po najechaniu */
+}
